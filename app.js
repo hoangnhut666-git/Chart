@@ -619,13 +619,14 @@ function resetFlowVisuals() {
     // Reset pulses
     const pulses = document.querySelectorAll('.flow-pulse');
     pulses.forEach(p => {
-        p.className = 'flow-pulse'; // resets active-pulse and all custom pulses
+        p.classList.remove('active-pulse', 'pulse-ai', 'pulse-picking', 'pulse-erp');
+        p.getAnimations().forEach(anim => anim.cancel());
     });
 
     // Reset markers
     const markers = document.querySelectorAll('marker');
     markers.forEach(m => {
-        m.className = '';
+        m.classList.remove('active-marker-ai', 'active-marker-picking', 'active-marker-erp');
     });
 
     // Reset Zone highlights
@@ -651,7 +652,15 @@ const btnTogglePanel = document.getElementById('btn-toggle-panel');
 if (btnTogglePanel && simulatorPanel) {
     btnTogglePanel.addEventListener('click', (e) => {
         e.stopPropagation();
+        const willCollapse = !simulatorPanel.classList.contains('collapsed');
         simulatorPanel.classList.toggle('collapsed');
+
+        if (willCollapse && activeFlow) {
+            activeFlow = null;
+            flowButtons.forEach(b => b.classList.remove('active'));
+            flowInfo.classList.remove('active');
+            resetFlowVisuals();
+        }
     });
 }
 
