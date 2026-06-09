@@ -8,7 +8,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ABAP', 'SAP HANA DB', 'SAP Integration Suite', 'SAP BTP CPI'],
         protocols: ['RFC (primary)', 'OData/REST', 'IDoc (Phase 2)'],
-        connections: 'Bi-directional sync via Integration Hub: INT-01 (master data), INT-03 (SO/DN), INT-04 (PGI/GR, Phase 2).'
+        phase: 'Phase 1 & 2',
+        integrations: ['INT-01', 'INT-02', 'INT-03', 'INT-04'],
+        modules: ['Module H — Master Data', 'Module C — Outbound', 'Module A — GR (Phase 2)']
     },
     'node-attx': {
         name: 'ATTx Track & Trace API',
@@ -18,7 +20,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ATTx REST API', 'OAuth 2.0', 'Azure Key Vault (credentials)'],
         protocols: ['REST/HTTPS', 'OAuth 2.0'],
-        connections: 'Connected to Integration Hub for INT-01 reference data; real-time sequence API during INT-06 edge inference.'
+        phase: 'Phase 1',
+        integrations: ['INT-01'],
+        modules: ['Module A — Production Inbound', 'Traceability / Sequence Validation']
     },
     'node-mekong': {
         name: 'Mekong / ASG-North WMS APIs',
@@ -28,7 +32,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['REST API Adapter', 'Azure Logic Apps', 'SFTP Connector'],
         protocols: ['REST API (HTTPS)', 'SFTP', 'JSON/EDIFACT'],
-        connections: 'Connected to Integration Hub for daily reconciliation, transaction sync, and 3PL billing (Module D).'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module D — 3PL Billing & Reconciliation']
     },
     'node-cameras': {
         name: 'Industrial Cameras x15',
@@ -38,7 +44,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Industrial IP Cameras', 'PoE Network Hub', 'Structured Lighting'],
         protocols: ['RTSP', 'GigE Vision'],
-        connections: 'Streams video via INT-05 to AI Vision Edge Cluster per line zone.'
+        phase: 'Phase 1',
+        integrations: ['INT-05'],
+        modules: ['Module A — Production Inbound']
     },
     'node-android': {
         name: 'Handheld RF / Android Clients',
@@ -48,7 +56,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['.NET MAUI', 'MSAL (Azure AD)', 'SQLite Offline Outbox'],
         protocols: ['HTTPS (JSON)', 'INT-10 via API Gateway'],
-        connections: 'Scan events via INT-10: API Gateway → Mobile BFF → WMS Core (Modules A, B, C, E, I).'
+        phase: 'Phase 1',
+        integrations: ['INT-10'],
+        modules: ['Module A — Inbound', 'Module B — Inventory', 'Module C — Outbound', 'Module E — Labor', 'Module I — Compliance']
     },
     'node-sensors': {
         name: 'Environmental Sensors',
@@ -58,7 +68,9 @@ const nodeMetadata = {
         isPlanned: true,
         tech: ['MQTT IoT Devices', 'Azure IoT Hub'],
         protocols: ['MQTT', 'Azure IoT Hub Protocol'],
-        connections: 'MQTT → Azure IoT Hub → Integration Hub (INT-09, optional Phase 1).'
+        phase: 'Phase 1 (Optional)',
+        integrations: ['INT-09'],
+        modules: ['Module I — QA & Environmental Compliance']
     },
     'node-edge-cluster': {
         name: 'AI Vision Edge Cluster',
@@ -68,7 +80,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['NVIDIA Jetson AGX Orin', 'DeepStream/GStreamer', 'TensorRT YOLO', 'Azure Cache for Redis (local buffer)'],
         protocols: ['RTSP Ingestion (INT-05)', 'HTTPS/gRPC (INT-06)'],
-        connections: 'Consumes INT-05 camera feeds; publishes INT-06 recognition results to WMS Core Inbound; receives model weights from AI MLOps.'
+        phase: 'Phase 1',
+        integrations: ['INT-05', 'INT-06'],
+        modules: ['Module A — Production Inbound', 'AI Vision Fallback Routing']
     },
     'node-gateway': {
         name: 'API Gateway + WAF',
@@ -78,7 +92,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Azure API Management', 'Application Gateway WAF', 'AKS Ingress'],
         protocols: ['TLS 1.2+', 'HTTPS', 'mTLS (edge nodes)'],
-        connections: 'Routes RF (INT-10), admin, and edge traffic to WMS Core; validates JWT from Azure AD SSO.'
+        phase: 'Phase 1',
+        integrations: ['INT-10'],
+        modules: ['Modules A–I — Secure API Access']
     },
     'node-sso': {
         name: 'Azure AD SSO + RBAC',
@@ -88,7 +104,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Microsoft Entra ID (Azure AD)', 'MSAL', 'OpenID Connect'],
         protocols: ['OIDC', 'JWT Validation', 'SAML 2.0 (federation)'],
-        connections: 'Validates identity at API Gateway perimeter; no SAP credentials on handheld devices.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Cross-cutting — IAM / RBAC']
     },
     'node-hub': {
         name: 'Integration Hub / iPaaS',
@@ -98,7 +116,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Integration Hub Worker (.NET)', 'Azure Logic Apps', 'SAP CPI / BTP'],
         protocols: ['RFC', 'HTTPS', 'AMQP', 'SFTP'],
-        connections: 'INT-01–04 with SAP, ATTx, Mekong/ASG-North; bi-directional with WMS Core; INT-09 IoT payloads; 90-day message log.'
+        phase: 'Phase 1 & 2',
+        integrations: ['INT-01', 'INT-02', 'INT-03', 'INT-04', 'INT-09'],
+        modules: ['Modules A–I — Enterprise Sync', 'Module D — 3PL Integration']
     },
     'node-core': {
         name: 'WMS Core Services',
@@ -108,7 +128,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ASP.NET Core 8', 'MediatR', 'Docker on AKS', 'Domain Events + Outbox'],
         protocols: ['HTTPS REST (external)', 'gRPC (internal)', 'CloudEvents'],
-        connections: 'Interfaces with Gateway (INT-10), Edge (INT-06), Hub (INT-01–04), OLTP, Event Store, Notify, Reporting, SDS.'
+        phase: 'Phase 1 & 2',
+        integrations: ['INT-06', 'INT-10'],
+        modules: ['Modules A–I', 'MCF — Manufacturing (Phase 2)']
     },
     'node-mlops': {
         name: 'AI MLOps + Model Registry',
@@ -118,7 +140,9 @@ const nodeMetadata = {
         isPlanned: true,
         tech: ['Azure Machine Learning', 'CVAT Labeling', 'MLflow Model Registry'],
         protocols: ['HTTPS API', 'Model manifest deploy'],
-        connections: 'Trains and deploys model artifacts to AI Vision Edge Clusters; metadata-only northbound (video stays in Vietnam).'
+        phase: 'Phase 2',
+        integrations: [],
+        modules: ['Module A — AI Vision Model Lifecycle']
     },
     'node-sds': {
         name: 'SDS/COA Document Service',
@@ -128,7 +152,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ASP.NET Core', 'Azure Blob Storage', 'Azure AI Document Intelligence'],
         protocols: ['HTTPS REST', 'Blob Storage API'],
-        connections: 'Serves WMS Core Compliance service; archives documents in Azure Blob (Data Plane Object Storage).'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module A — COA Verification', 'Module I — SDS / MRL Compliance']
     },
     'node-notify': {
         name: 'Notification Service',
@@ -138,7 +164,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ASP.NET Core', 'SMTP Adapter', 'MS Teams Webhook Client'],
         protocols: ['SMTP', 'HTTPS JSON Webhooks (INT-12)'],
-        connections: 'Primary: subscribes to Event Store / Outbox topics; also receives direct alerts from WMS Core for urgent floor incidents.'
+        phase: 'Phase 1',
+        integrations: ['INT-12'],
+        modules: ['Module C — Outbound Alerts', 'Module D — 3PL Variance', 'Module F — Scheduled Reports', 'Module I — Compliance Alerts']
     },
     'node-reporting': {
         name: 'Reporting + BI Embed',
@@ -148,7 +176,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['ASP.NET Core Reporting API', 'Blazor', 'SignalR', 'Power BI Embedded', 'SQL Server'],
         protocols: ['REST/HTTPS', 'SignalR (WebSockets)', 'SQL Server TDS'],
-        connections: 'Reads from Analytics/KPI warehouse (CDC-fed); pushes real-time updates via SignalR to Blazor clients (Module F).'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module F — KPI Dashboards & Reporting']
     },
     'node-db': {
         name: 'Operational Database',
@@ -158,7 +188,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Azure Database for PostgreSQL Flexible Server', 'Schema per Bounded Context', 'Continuous Backup'],
         protocols: ['PostgreSQL Native Driver', 'Write-Ahead Logs (WAL)'],
-        connections: 'Directly queried and updated by WMS Core microservices; RPO <1h via continuous backup.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Modules A–I — OLTP Execution Truth']
     },
     'node-events': {
         name: 'Event Store / Outbox',
@@ -168,7 +200,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Azure Service Bus', 'Outbox Tables (per service)', 'CloudEvents Schema'],
         protocols: ['Azure Service Bus Protocol', 'CloudEvents'],
-        connections: 'Receives events from WMS Core; fans out to Integration Hub, Analytics DWH, Audit Log, and Notification Service.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Modules A–I — Domain Events & Integration Outbox']
     },
     'node-analytics': {
         name: 'Analytics / KPI Warehouse',
@@ -178,7 +212,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['PostgreSQL Read Replica', 'CDC Pipeline', 'Azure Synapse (optional scale)'],
         protocols: ['PostgreSQL', 'CDC Stream'],
-        connections: 'Ingests from Event Store via stream processor; receives aggregated feeds from Reporting module.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module F — Analytics & BI']
     },
     'node-audit': {
         name: 'Immutable Audit Log',
@@ -188,7 +224,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Syngenta.Wms.Audit Service', 'Partitioned Append-Only Tables', 'Azure Immutable Blob (WORM)'],
         protocols: ['HTTPS REST', 'MediatR Audit Pipeline'],
-        connections: 'Ingests audit events from Event Store / Outbox consumer; integration audit subset promoted from Hub 90-day log.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Modules A–I — Immutable Compliance Ledger']
     },
     'node-redis': {
         name: 'Redis Cache & Lock Manager',
@@ -198,7 +236,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Azure Cache for Redis', 'Redlock Pattern'],
         protocols: ['Redis Serialization Protocol (RESP)'],
-        connections: 'Provides session data, distributed locking, and hot master data cache to WMS Core.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module B — Inventory Locks', 'Module C — Concurrent Pick Prevention', 'Module H — Hot Master Data Cache']
     },
     'node-object-store': {
         name: 'Object Storage',
@@ -208,7 +248,9 @@ const nodeMetadata = {
         isPlanned: false,
         tech: ['Azure Blob Storage', 'SSE (AES-256)', 'Versioning'],
         protocols: ['Azure Blob REST API'],
-        connections: 'Stores documents uploaded by SDS/COA Document Service; linked from OLTP metadata rows.'
+        phase: 'Phase 1',
+        integrations: [],
+        modules: ['Module I — Document Storage', 'Module F — Report Artifacts']
     }
 };
 
@@ -440,46 +482,40 @@ function selectNode(nodeId) {
     document.getElementById('drawer-title').innerText = meta.name;
     document.getElementById('drawer-subtitle').innerText = meta.subtitle;
     document.getElementById('drawer-desc').innerText = meta.desc;
-    
-    // Status text & dot
-    const statusText = document.getElementById('drawer-status-text');
-    const statusDot = document.getElementById('drawer-status-dot');
-    statusText.innerText = meta.status;
-    if (meta.isPlanned) {
-        statusDot.className = 'status-dot planned';
-        statusText.style.color = 'var(--clr-amber)';
-    } else {
-        statusDot.className = 'status-dot active';
-        statusText.style.color = 'var(--clr-emerald)';
-    }
 
-    // Technology Tags
-    const techContainer = document.getElementById('drawer-tech-tags');
-    techContainer.innerHTML = '';
-    meta.tech.forEach(t => {
-        const tag = document.createElement('span');
-        tag.className = 'tech-tag';
-        tag.innerText = t;
-        techContainer.appendChild(tag);
-    });
+    const phaseEl = document.getElementById('drawer-phase');
+    phaseEl.innerText = meta.phase;
+    phaseEl.classList.toggle('planned', meta.isPlanned);
 
-    // Protocols
-    const protoContainer = document.getElementById('drawer-protocols');
-    protoContainer.innerHTML = '';
-    meta.protocols.forEach(p => {
-        const tag = document.createElement('span');
-        tag.className = 'tech-tag';
-        tag.style.borderColor = 'rgba(6, 182, 212, 0.2)';
-        tag.style.color = 'var(--clr-cyan)';
-        tag.innerText = p;
-        protoContainer.appendChild(tag);
-    });
-
-    // Related endpoints text
-    document.getElementById('drawer-connections').innerText = meta.connections;
+    populateDrawerTags('drawer-tech-tags', meta.tech, 'tech-tag');
+    populateDrawerTags('drawer-protocols', meta.protocols, 'tech-tag');
+    populateDrawerTags('drawer-integrations', meta.integrations, 'tech-tag int-tag', 'No external INT-XX interfaces (internal platform service).');
+    populateDrawerTags('drawer-modules', meta.modules, 'tech-tag module-tag');
 
     // Open drawer
     drawer.classList.add('open');
+}
+
+function populateDrawerTags(containerId, items, tagClass, emptyHint) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+
+    if (!items || items.length === 0) {
+        if (emptyHint) {
+            const hint = document.createElement('p');
+            hint.className = 'drawer-empty-hint';
+            hint.innerText = emptyHint;
+            container.appendChild(hint);
+        }
+        return;
+    }
+
+    items.forEach(item => {
+        const tag = document.createElement('span');
+        tag.className = tagClass;
+        tag.innerText = item;
+        container.appendChild(tag);
+    });
 }
 
 function clearSelection() {

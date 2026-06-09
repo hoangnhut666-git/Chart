@@ -614,6 +614,33 @@ marker.active-marker-erp { fill: var(--clr-purple); }
 .status-dot.active { background-color: var(--clr-emerald); box-shadow: 0 0 8px var(--clr-emerald); }
 .status-dot.planned { background-color: var(--clr-amber); box-shadow: 0 0 8px var(--clr-amber); }
 
+.phase-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.phase-label.planned {
+    color: var(--clr-amber);
+}
+
+.tech-tag.int-tag {
+    border-color: rgba(6, 182, 212, 0.25);
+    color: var(--clr-cyan);
+    font-weight: 600;
+}
+
+.tech-tag.module-tag {
+    border-color: rgba(139, 92, 246, 0.25);
+    color: var(--clr-purple);
+}
+
+.drawer-empty-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
 /* Flow info drawer */
 .flow-info-box {
     margin-top: 16px;
