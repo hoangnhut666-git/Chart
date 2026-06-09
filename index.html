@@ -106,8 +106,6 @@
                     <path id="path-gw-ad" d="M 425 398 L 425 462" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 7. API Gateway -> WMS Core -->
                     <path id="path-gw-core" d="M 470 398 L 620 510" class="connection-path" marker-end="url(#arrow)" />
-                    <!-- 8. Azure AD -> Integration Hub -->
-                    <path id="path-ad-hub" d="M 425 518 L 425 572" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 9. Integration Hub <-> WMS Core -->
                     <path id="path-hub-core" d="M 525 600 L 585 540" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     
@@ -123,10 +121,7 @@
                     <!-- 14. WMS Core -> SDS Document -->
                     <path id="path-core-sds" d="M 765 540 L 815 600" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 15. WMS Core -> Notification -->
-                    <path id="path-core-notify" d="M 740 570 L 815 685" class="connection-path" marker-end="url(#arrow)" />
-                    <!-- 16. WMS Core -> Reporting -->
-                    <path id="path-core-report" d="M 675 570 L 675 658" class="connection-path" marker-end="url(#arrow)" />
-                    
+                    <path id="path-core-notify" d="M 740 570 L 815 685" class="connection-path" marker-end="url(#arrow)" />                    
                     <!-- 17. WMS Core -> Operational DB -->
                     <path id="path-core-db" d="M 600 570 L 230 838" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 18. WMS Core -> Event Store -->
@@ -139,13 +134,11 @@
                     <path id="path-events-analytics" d="M 515 875 L 585 835" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 21. Event Store -> Immutable Audit -->
                     <path id="path-events-audit" d="M 515 875 L 585 925" class="connection-path" marker-end="url(#arrow)" />
-                    <!-- 22. Event Store -> Notification Service (Dashed) -->
-                    <path id="path-events-notify" d="M 515 875 L 700 780 L 815 685" class="connection-path dashed" marker-end="url(#arrow)" />
                     <!-- 23. SDS Document -> Object Storage -->
                     <path id="path-sds-object" d="M 1055 600 L 1150 838" class="connection-path" marker-end="url(#arrow)" />
                     
                     <!-- 24. WMS Core -> Redis (Dashed custom connection) -->
-                    <path id="path-core-redis" d="M 765 540 L 950 838" class="connection-path dashed" marker-end="url(#arrow)" />
+                    <!-- <path id="path-core-redis" d="M 765 540 L 950 838" class="connection-path dashed" marker-end="url(#arrow)" /> -->
 
 
                     <!-- Active Flow Pulse Paths (Overlay animations) -->
