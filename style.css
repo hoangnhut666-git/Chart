@@ -292,9 +292,9 @@ header {
 
 .connection-path {
     fill: none;
-    stroke: rgba(148, 163, 184, 0.18);
-    stroke-width: 2;
-    transition: stroke 0.3s, stroke-width 0.3s;
+    stroke: rgba(148, 163, 184, 0.22);
+    stroke-width: 1.5;
+    transition: stroke 0.3s, stroke-width 0.3s, filter 0.3s;
 }
 
 .connection-path.dashed {
@@ -306,9 +306,9 @@ header {
     stroke-width: 2.5;
 }
 
-.connection-path.ai-flow { stroke: var(--clr-cyan); }
-.connection-path.picking-flow { stroke: var(--clr-emerald); }
-.connection-path.erp-flow { stroke: var(--clr-purple); }
+.connection-path.ai-flow { stroke: var(--clr-cyan); filter: drop-shadow(0 0 4px var(--clr-cyan)); }
+.connection-path.picking-flow { stroke: var(--clr-emerald); filter: drop-shadow(0 0 4px var(--clr-emerald)); }
+.connection-path.erp-flow { stroke: var(--clr-purple); filter: drop-shadow(0 0 4px var(--clr-purple)); }
 
 /* SVG Markers for Arrows */
 marker {

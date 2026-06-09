@@ -93,93 +93,93 @@
 
                     <!-- SVG Connection Paths -->
                     <!-- 1. Industrial cameras -> AI Vision Edge -->
-                    <path id="path-cam-edge" d="M 785 128 L 865 172" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-cam-edge" d="M 785 128 C 785 150, 865 150, 865 172" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 2. Android clients -> API Gateway -->
                     <path id="path-android-gw" d="M 425 228 L 425 342" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 3. Env sensors -> Integration Hub -->
-                    <path id="path-sensors-hub" d="M 635 228 L 425 572" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-sensors-hub" d="M 635 228 C 635 400, 425 400, 425 572" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 4. AI Vision Edge -> WMS Core -->
-                    <path id="path-edge-core" d="M 865 228 L 675 510" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-edge-core" d="M 865 228 C 865 369, 675 369, 675 510" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 5. AI Vision Edge -> AI MLOps -->
                     <path id="path-edge-mlops" d="M 865 228 L 865 372" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 6. API Gateway -> Azure AD -->
                     <path id="path-gw-ad" d="M 425 398 L 425 462" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 7. API Gateway -> WMS Core -->
-                    <path id="path-gw-core" d="M 470 398 L 620 510" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-gw-core" d="M 470 398 C 470 454, 620 454, 620 510" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 9. Integration Hub <-> WMS Core -->
-                    <path id="path-hub-core" d="M 525 600 L 585 540" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-core" d="M 525 600 C 555 600, 555 540, 585 540" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     
                     <!-- 10. Integration Hub <-> SAP S/4HANA -->
-                    <path id="path-hub-sap" d="M 325 600 L 250 385" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-sap" d="M 325 600 C 275 600, 300 385, 250 385" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     <!-- 11. Integration Hub <-> ATTx -->
-                    <path id="path-hub-attx" d="M 325 600 L 250 515" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-attx" d="M 325 600 C 285 600, 290 515, 250 515" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     <!-- 12. Integration Hub <-> Mekong -->
-                    <path id="path-hub-mekong" d="M 325 600 L 250 645" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-mekong" d="M 325 600 C 285 600, 290 645, 250 645" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     
                     <!-- 13. WMS Core <-> AI MLOps -->
-                    <path id="path-core-mlops" d="M 730 510 L 800 428" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-core-mlops" d="M 730 510 C 730 469, 800 469, 800 428" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     <!-- 14. WMS Core -> SDS Document -->
-                    <path id="path-core-sds" d="M 765 540 L 815 600" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-core-sds" d="M 765 540 C 790 540, 790 600, 815 600" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 15. WMS Core -> Notification -->
-                    <path id="path-core-notify" d="M 740 570 L 815 685" class="connection-path" marker-end="url(#arrow)" />                    
+                    <path id="path-core-notify" d="M 740 570 C 777 570, 777 685, 815 685" class="connection-path" marker-end="url(#arrow)" />                    
                     <!-- 17. WMS Core -> Operational DB -->
-                    <path id="path-core-db" d="M 600 570 L 230 838" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-core-db" d="M 600 570 C 600 704, 230 704, 230 838" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 18. WMS Core -> Event Store -->
-                    <path id="path-core-events" d="M 650 570 L 425 838" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-core-events" d="M 650 570 C 650 704, 425 704, 425 838" class="connection-path" marker-end="url(#arrow)" />
                     
                     <!-- 19. Reporting -> Analytics / KPI (Dashed) -->
                     <path id="path-report-analytics" d="M 675 713 L 675 800" class="connection-path dashed" marker-end="url(#arrow)" />
                     
                     <!-- 20. Event Store -> Analytics -->
-                    <path id="path-events-analytics" d="M 515 875 L 585 835" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-events-analytics" d="M 515 875 C 550 875, 550 835, 585 835" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 21. Event Store -> Immutable Audit -->
-                    <path id="path-events-audit" d="M 515 875 L 585 925" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-events-audit" d="M 515 875 C 550 875, 550 925, 585 925" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 22. Event Store -> Notification -->
-                    <path id="path-events-notify" d="M 515 875 L 700 780 L 815 685" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 23. SDS Document -> Object Storage -->
-                    <path id="path-sds-object" d="M 1055 600 L 1150 838" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-sds-object" d="M 1055 600 C 1055 719, 1150 719, 1150 838" class="connection-path" marker-end="url(#arrow)" />
                     
                     <!-- 24. WMS Core -> Redis (Dashed custom connection) -->
-                    <!-- <path id="path-core-redis" d="M 765 540 L 950 838" class="connection-path dashed" marker-end="url(#arrow)" /> -->
+                    <!-- <path id="path-core-redis" d="M 765 540 C 765 689, 950 689, 950 838" class="connection-path dashed" marker-end="url(#arrow)" /> -->
 
 
                     <!-- Active Flow Pulse Paths (Overlay animations) -->
-                    <path id="pulse-cam-edge" d="M 785 128 L 865 172" class="flow-pulse" />
+                    <path id="pulse-cam-edge" d="M 785 128 C 785 150, 865 150, 865 172" class="flow-pulse" />
                     <path id="pulse-android-gw" d="M 425 228 L 425 342" class="flow-pulse" />
-                    <path id="pulse-sensors-hub" d="M 635 228 L 425 572" class="flow-pulse" />
-                    <path id="pulse-edge-core" d="M 865 228 L 675 510" class="flow-pulse" />
+                    <path id="pulse-sensors-hub" d="M 635 228 C 635 400, 425 400, 425 572" class="flow-pulse" />
+                    <path id="pulse-edge-core" d="M 865 228 C 865 369, 675 369, 675 510" class="flow-pulse" />
                     <path id="pulse-edge-mlops" d="M 865 228 L 865 372" class="flow-pulse" />
                     <path id="pulse-gw-ad" d="M 425 398 L 425 462" class="flow-pulse" />
-                    <path id="pulse-gw-core" d="M 470 398 L 620 510" class="flow-pulse" />
+                    <path id="pulse-gw-core" d="M 470 398 C 470 454, 620 454, 620 510" class="flow-pulse" />
                     <path id="pulse-ad-hub" d="M 425 518 L 425 572" class="flow-pulse" />
                     
-                    <path id="pulse-hub-core-forward" d="M 425 600 L 585 540" class="flow-pulse" />
-                    <path id="pulse-hub-core-backward" d="M 585 540 L 425 600" class="flow-pulse" />
+                    <path id="pulse-hub-core-forward" d="M 525 600 C 555 600, 555 540, 585 540" class="flow-pulse" />
+                    <path id="pulse-hub-core-backward" d="M 585 540 C 555 540, 555 600, 525 600" class="flow-pulse" />
                     
-                    <path id="pulse-hub-sap-forward" d="M 425 600 L 250 385" class="flow-pulse" />
-                    <path id="pulse-hub-sap-backward" d="M 250 385 L 425 600" class="flow-pulse" />
+                    <path id="pulse-hub-sap-forward" d="M 325 600 C 275 600, 300 385, 250 385" class="flow-pulse" />
+                    <path id="pulse-hub-sap-backward" d="M 250 385 C 300 385, 275 600, 325 600" class="flow-pulse" />
                     
-                    <path id="pulse-hub-attx-forward" d="M 425 600 L 250 515" class="flow-pulse" />
-                    <path id="pulse-hub-attx-backward" d="M 250 515 L 425 600" class="flow-pulse" />
+                    <path id="pulse-hub-attx-forward" d="M 325 600 C 285 600, 290 515, 250 515" class="flow-pulse" />
+                    <path id="pulse-hub-attx-backward" d="M 250 515 C 290 515, 285 600, 325 600" class="flow-pulse" />
                     
-                    <path id="pulse-hub-mekong-forward" d="M 425 600 L 250 645" class="flow-pulse" />
-                    <path id="pulse-hub-mekong-backward" d="M 250 645 L 425 600" class="flow-pulse" />
+                    <path id="pulse-hub-mekong-forward" d="M 325 600 C 285 600, 290 645, 250 645" class="flow-pulse" />
+                    <path id="pulse-hub-mekong-backward" d="M 250 645 C 290 645, 285 600, 325 600" class="flow-pulse" />
                     
-                    <path id="pulse-core-mlops" d="M 675 540 L 865 400" class="flow-pulse" />
-                    <path id="pulse-core-sds" d="M 765 540 L 815 600" class="flow-pulse" />
-                    <path id="pulse-core-notify" d="M 740 570 L 815 685" class="flow-pulse" />
+                    <path id="pulse-core-mlops" d="M 730 510 C 730 469, 800 469, 800 428" class="flow-pulse" />
+                    <path id="pulse-core-sds" d="M 765 540 C 790 540, 790 600, 815 600" class="flow-pulse" />
+                    <path id="pulse-core-notify" d="M 740 570 C 777 570, 777 685, 815 685" class="flow-pulse" />
                     <path id="pulse-core-report" d="M 675 570 L 675 658" class="flow-pulse" />
                     
-                    <path id="pulse-core-db" d="M 600 570 L 230 838" class="flow-pulse" />
-                    <path id="pulse-core-events" d="M 650 570 L 425 838" class="flow-pulse" />
+                    <path id="pulse-core-db" d="M 600 570 C 600 704, 230 704, 230 838" class="flow-pulse" />
+                    <path id="pulse-core-events" d="M 650 570 C 650 704, 425 704, 425 838" class="flow-pulse" />
                     
                     <path id="pulse-report-analytics" d="M 675 713 L 675 800" class="flow-pulse" />
                     
-                    <path id="pulse-events-analytics" d="M 515 875 L 585 835" class="flow-pulse" />
-                    <path id="pulse-events-audit" d="M 515 875 L 585 925" class="flow-pulse" />
-                    <path id="pulse-events-notify" d="M 515 875 L 700 780 L 815 685" class="flow-pulse" />
-                    <path id="pulse-sds-object" d="M 1055 600 L 1150 838" class="flow-pulse" />
-                    <path id="pulse-core-redis" d="M 765 540 L 950 838" class="flow-pulse" />
+                    <path id="pulse-events-analytics" d="M 515 875 C 550 875, 550 835, 585 835" class="flow-pulse" />
+                    <path id="pulse-events-audit" d="M 515 875 C 550 875, 550 925, 585 925" class="flow-pulse" />
+                    <path id="pulse-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685" class="flow-pulse" />
+                    <path id="pulse-sds-object" d="M 1055 600 C 1055 719, 1150 719, 1150 838" class="flow-pulse" />
+                    <path id="pulse-core-redis" d="M 765 540 C 765 689, 950 689, 950 838" class="flow-pulse" />
                 </svg>
 
                 <!-- Zone 1 Nodes: Enterprise & 3PL -->
