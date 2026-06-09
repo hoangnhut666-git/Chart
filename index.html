@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS Enterprise Architecture Map</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Top Header Bar -->
     <header>
         <div class="header-title-group">
             <div class="logo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #ffffff;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" style="color: #ffffff;">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
             </div>
             <div>
                 <h1>WMS Enterprise Architecture Map</h1>
@@ -20,8 +29,22 @@
         </div>
         <div class="header-links">
             <button class="header-btn" id="btn-theme-toggle" title="Chuyển chế độ Sáng/Tối">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="theme-icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="theme-icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" class="theme-icon-sun">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" class="theme-icon-moon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
                 <span class="theme-text">Chế độ Sáng</span>
             </button>
         </div>
@@ -32,12 +55,18 @@
         <div class="flow-control-panel" id="simulator-panel">
             <h3 class="panel-header" id="btn-toggle-panel">
                 <span class="panel-header-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
                     Simulation Controller
                 </span>
-                <svg class="panel-toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg class="panel-toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
             </h3>
-            
+
             <div class="panel-body">
                 <button class="flow-btn" data-flow="ai-vision">
                     AI Vision & Quality Alert
@@ -48,7 +77,7 @@
                 <button class="flow-btn" data-flow="erp-sync">
                     ERP SAP & 3PL Integration
                 </button>
-                
+
                 <div class="flow-info-box" id="flow-info">
                     <!-- Dynamic text populated by JS -->
                 </div>
@@ -60,10 +89,10 @@
             <div class="canvas-container" id="canvas">
                 <!-- Zone Boundaries -->
                 <!-- Zone 1: Enterprise & 3PL (Left) -->
-                <div class="zone-box" style="left: 30px; top: 310px; width: 240px; height: 440px;">
+                <div class="zone-box" style="left: 25px; top: 310px; width: 255px; height: 440px;">
                     <div class="zone-label">Enterprise & 3PL</div>
                 </div>
-                
+
                 <!-- Zone 2: Bien Hoa - Floor & Lines (Top) -->
                 <div class="zone-box" style="left: 300px; top: 40px; width: 1070px; height: 240px;">
                     <div class="zone-label">Bien Hoa - Floor & Lines</div>
@@ -83,121 +112,159 @@
                 <svg class="connections-svg" viewBox="0 0 1400 1020">
                     <defs>
                         <!-- Markers for Arrow Heads -->
-                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                            orient="auto-start-reverse">
                             <path d="M 0 0 L 10 5 L 0 10 z" />
                         </marker>
-                        <marker id="arrow-bi" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <marker id="arrow-bi" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
+                            orient="auto-start-reverse">
                             <path d="M 0 0 L 10 5 L 0 10 z" />
                         </marker>
                     </defs>
 
                     <!-- SVG Connection Paths -->
                     <!-- 1. Industrial cameras -> AI Vision Edge -->
-                    <path id="path-cam-edge" d="M 785 128 C 785 150, 865 150, 865 172" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-cam-edge" d="M 885 128 C 885 150, 965 150, 965 172" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 2. Android clients -> API Gateway -->
-                    <path id="path-android-gw" d="M 425 228 L 425 342" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-android-gw" d="M 425 228 L 425 342" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 3. Env sensors -> Integration Hub -->
-                    <path id="path-sensors-hub" d="M 635 228 C 635 400, 425 400, 425 572" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-sensors-hub" d="M 695 228 C 695 400, 425 400, 425 572" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 4. AI Vision Edge -> WMS Core -->
-                    <path id="path-edge-core" d="M 865 228 C 865 369, 675 369, 675 510" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-edge-core" d="M 965 228 C 965 369, 675 369, 675 510" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 5. AI Vision Edge -> AI MLOps -->
-                    <path id="path-edge-mlops" d="M 865 228 L 865 372" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-edge-mlops" d="M 965 228 C 965 300, 865 300, 865 372" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 6. API Gateway -> Azure AD -->
                     <path id="path-gw-ad" d="M 425 398 L 425 462" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 7. API Gateway -> WMS Core -->
-                    <path id="path-gw-core" d="M 470 398 C 470 454, 620 454, 620 510" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-gw-core" d="M 470 398 C 470 454, 620 454, 620 510" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 9. Integration Hub <-> WMS Core -->
-                    <path id="path-hub-core" d="M 525 600 C 555 600, 555 540, 585 540" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
-                    
+                    <path id="path-hub-core" d="M 525 600 C 555 600, 555 540, 585 540" class="connection-path"
+                        marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+
                     <!-- 10. Integration Hub <-> SAP S/4HANA -->
-                    <path id="path-hub-sap" d="M 325 600 C 275 600, 300 385, 250 385" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-sap" d="M 325 600 C 275 600, 310 385, 260 385" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 11. Integration Hub <-> ATTx -->
-                    <path id="path-hub-attx" d="M 325 600 C 285 600, 290 515, 250 515" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-hub-attx" d="M 325 600 C 285 600, 300 515, 260 515" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 12. Integration Hub <-> Mekong -->
-                    <path id="path-hub-mekong" d="M 325 600 C 285 600, 290 645, 250 645" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
-                    
+                    <path id="path-hub-mekong" d="M 325 600 C 285 600, 300 645, 260 645" class="connection-path"
+                        marker-end="url(#arrow)" />
+
                     <!-- 13. WMS Core <-> AI MLOps -->
-                    <path id="path-core-mlops" d="M 730 510 C 730 469, 800 469, 800 428" class="connection-path" marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
+                    <path id="path-core-mlops" d="M 730 510 C 730 469, 800 469, 800 428" class="connection-path"
+                        marker-end="url(#arrow)" marker-start="url(#arrow-bi)" />
                     <!-- 14. WMS Core -> SDS Document -->
-                    <path id="path-core-sds" d="M 765 540 C 790 540, 790 600, 815 600" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-core-sds" d="M 765 540 C 790 540, 790 600, 815 600" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 15. WMS Core -> Notification -->
-                    <path id="path-core-notify" d="M 740 570 C 777 570, 777 685, 815 685" class="connection-path" marker-end="url(#arrow)" />                    
+                    <path id="path-core-notify" d="M 740 570 C 777 570, 777 685, 815 685" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 17. WMS Core -> Operational DB -->
-                    <path id="path-core-db" d="M 600 570 C 600 704, 230 704, 230 838" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-core-db" d="M 600 570 C 600 704, 230 704, 230 838" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 18. WMS Core -> Event Store -->
-                    <path id="path-core-events" d="M 650 570 C 650 704, 425 704, 425 838" class="connection-path" marker-end="url(#arrow)" />
-                    
+                    <path id="path-core-events" d="M 650 570 C 650 704, 425 704, 425 838" class="connection-path"
+                        marker-end="url(#arrow)" />
+
                     <!-- 19. Reporting -> Analytics / KPI (Dashed) -->
-                    <path id="path-report-analytics" d="M 675 713 L 675 800" class="connection-path dashed" marker-end="url(#arrow)" />
-                    
+                    <path id="path-report-analytics" d="M 675 713 L 675 800" class="connection-path"
+                        marker-end="url(#arrow)" />
+
                     <!-- 20. Event Store -> Analytics -->
-                    <path id="path-events-analytics" d="M 515 875 C 550 875, 550 835, 585 835" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-events-analytics" d="M 515 875 C 550 875, 550 835, 585 835" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 21. Event Store -> Immutable Audit -->
-                    <path id="path-events-audit" d="M 515 875 C 550 875, 550 925, 585 925" class="connection-path" marker-end="url(#arrow)" />
+                    <path id="path-events-audit" d="M 515 875 C 550 875, 550 925, 585 925" class="connection-path"
+                        marker-end="url(#arrow)" />
                     <!-- 22. Event Store -> Notification -->
-                    <path id="path-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685" class="connection-path" marker-end="url(#arrow)" />
+                    <!-- <path id="path-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685"
+                        class="connection-path" marker-end="url(#arrow)" /> -->
                     <!-- 23. SDS Document -> Object Storage -->
-                    <path id="path-sds-object" d="M 1055 600 C 1055 719, 1150 719, 1150 838" class="connection-path" marker-end="url(#arrow)" />
-                    
+                    <path id="path-sds-object" d="M 1055 600 C 1055 719, 1150 719, 1150 838" class="connection-path"
+                        marker-end="url(#arrow)" />
+
                     <!-- 24. WMS Core -> Redis (Dashed custom connection) -->
                     <!-- <path id="path-core-redis" d="M 765 540 C 765 689, 950 689, 950 838" class="connection-path dashed" marker-end="url(#arrow)" /> -->
 
 
                     <!-- Active Flow Pulse Paths (Overlay animations) -->
-                    <path id="pulse-cam-edge" d="M 785 128 C 785 150, 865 150, 865 172" class="flow-pulse" />
+                    <path id="pulse-cam-edge" d="M 885 128 C 885 150, 965 150, 965 172" class="flow-pulse" />
                     <path id="pulse-android-gw" d="M 425 228 L 425 342" class="flow-pulse" />
-                    <path id="pulse-sensors-hub" d="M 635 228 C 635 400, 425 400, 425 572" class="flow-pulse" />
-                    <path id="pulse-edge-core" d="M 865 228 C 865 369, 675 369, 675 510" class="flow-pulse" />
-                    <path id="pulse-edge-mlops" d="M 865 228 L 865 372" class="flow-pulse" />
+                    <path id="pulse-sensors-hub" d="M 695 228 C 695 400, 425 400, 425 572" class="flow-pulse" />
+                    <path id="pulse-edge-core" d="M 965 228 C 965 369, 675 369, 675 510" class="flow-pulse" />
+                    <path id="pulse-edge-mlops" d="M 965 228 C 965 300, 865 300, 865 372" class="flow-pulse" />
                     <path id="pulse-gw-ad" d="M 425 398 L 425 462" class="flow-pulse" />
                     <path id="pulse-gw-core" d="M 470 398 C 470 454, 620 454, 620 510" class="flow-pulse" />
                     <path id="pulse-ad-hub" d="M 425 518 L 425 572" class="flow-pulse" />
-                    
+
                     <path id="pulse-hub-core-forward" d="M 525 600 C 555 600, 555 540, 585 540" class="flow-pulse" />
                     <path id="pulse-hub-core-backward" d="M 585 540 C 555 540, 555 600, 525 600" class="flow-pulse" />
-                    
-                    <path id="pulse-hub-sap-forward" d="M 325 600 C 275 600, 300 385, 250 385" class="flow-pulse" />
-                    <path id="pulse-hub-sap-backward" d="M 250 385 C 300 385, 275 600, 325 600" class="flow-pulse" />
-                    
-                    <path id="pulse-hub-attx-forward" d="M 325 600 C 285 600, 290 515, 250 515" class="flow-pulse" />
-                    <path id="pulse-hub-attx-backward" d="M 250 515 C 290 515, 285 600, 325 600" class="flow-pulse" />
-                    
-                    <path id="pulse-hub-mekong-forward" d="M 325 600 C 285 600, 290 645, 250 645" class="flow-pulse" />
-                    <path id="pulse-hub-mekong-backward" d="M 250 645 C 290 645, 285 600, 325 600" class="flow-pulse" />
-                    
+
+                    <path id="pulse-hub-sap-forward" d="M 325 600 C 275 600, 310 385, 260 385" class="flow-pulse" />
+                    <path id="pulse-hub-sap-backward" d="M 260 385 C 310 385, 275 600, 325 600" class="flow-pulse" />
+
+                    <path id="pulse-hub-attx-forward" d="M 325 600 C 285 600, 300 515, 260 515" class="flow-pulse" />
+                    <path id="pulse-hub-attx-backward" d="M 260 515 C 300 515, 285 600, 325 600" class="flow-pulse" />
+
+                    <path id="pulse-hub-mekong-forward" d="M 325 600 C 285 600, 300 645, 260 645" class="flow-pulse" />
+                    <path id="pulse-hub-mekong-backward" d="M 260 645 C 300 645, 285 600, 325 600" class="flow-pulse" />
+
                     <path id="pulse-core-mlops" d="M 730 510 C 730 469, 800 469, 800 428" class="flow-pulse" />
                     <path id="pulse-core-sds" d="M 765 540 C 790 540, 790 600, 815 600" class="flow-pulse" />
                     <path id="pulse-core-notify" d="M 740 570 C 777 570, 777 685, 815 685" class="flow-pulse" />
                     <path id="pulse-core-report" d="M 675 570 L 675 658" class="flow-pulse" />
-                    
+
                     <path id="pulse-core-db" d="M 600 570 C 600 704, 230 704, 230 838" class="flow-pulse" />
                     <path id="pulse-core-events" d="M 650 570 C 650 704, 425 704, 425 838" class="flow-pulse" />
-                    
+
                     <path id="pulse-report-analytics" d="M 675 713 L 675 800" class="flow-pulse" />
-                    
+
                     <path id="pulse-events-analytics" d="M 515 875 C 550 875, 550 835, 585 835" class="flow-pulse" />
                     <path id="pulse-events-audit" d="M 515 875 C 550 875, 550 925, 585 925" class="flow-pulse" />
-                    <path id="pulse-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685" class="flow-pulse" />
+                    <path id="pulse-events-notify" d="M 515 875 C 570 875, 630 810, 700 780 S 760 685, 815 685"
+                        class="flow-pulse" />
                     <path id="pulse-sds-object" d="M 1055 600 C 1055 719, 1150 719, 1150 838" class="flow-pulse" />
                     <path id="pulse-core-redis" d="M 765 540 C 765 689, 950 689, 950 838" class="flow-pulse" />
                 </svg>
 
                 <!-- Zone 1 Nodes: Enterprise & 3PL -->
                 <!-- SAP S/4HANA IM -->
-                <div class="node sys-enterprise" id="node-sap" style="left: 50px; top: 357px; width: 200px; height: 55px;">
+                <div class="node sys-enterprise" id="node-sap"
+                    style="left: 40px; top: 357px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">SAP S/4HANA IM</span>
                         <span class="node-subtitle">Financial & ERP system of record</span>
                     </div>
                 </div>
-                
+
                 <!-- ATTx Track & Trace API -->
-                <div class="node sys-enterprise" id="node-attx" style="left: 50px; top: 487px; width: 200px; height: 55px;">
+                <div class="node sys-enterprise" id="node-attx"
+                    style="left: 40px; top: 487px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">ATTx Track & Trace API</span>
@@ -206,9 +273,14 @@
                 </div>
 
                 <!-- Mekong / ASG-North WMS APIs -->
-                <div class="node sys-enterprise" id="node-mekong" style="left: 50px; top: 612px; width: 200px; height: 65px;">
+                <div class="node sys-enterprise" id="node-mekong"
+                    style="left: 40px; top: 612px; width: 220px; height: 65px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Mekong / ASG-North</span>
@@ -219,9 +291,15 @@
 
                 <!-- Zone 2 Nodes: Bien Hoa - Floor & Lines -->
                 <!-- Industrial cameras x15 -->
-                <div class="node sys-edge" id="node-cameras" style="left: 685px; top: 72px; width: 200px; height: 55px;">
+                <div class="node sys-edge" id="node-cameras"
+                    style="left: 785px; top: 72px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Industrial cameras x15</span>
@@ -230,9 +308,14 @@
                 </div>
 
                 <!-- Android clients -->
-                <div class="node sys-edge" id="node-android" style="left: 335px; top: 172px; width: 180px; height: 55px;">
+                <div class="node sys-edge" id="node-android"
+                    style="left: 335px; top: 172px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Handheld RF / Android</span>
@@ -241,9 +324,13 @@
                 </div>
 
                 <!-- Env sensors MQTT optional -->
-                <div class="node sys-edge" id="node-sensors" style="left: 535px; top: 172px; width: 200px; height: 55px;">
+                <div class="node sys-edge" id="node-sensors"
+                    style="left: 595px; top: 172px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Env sensors MQTT</span>
@@ -252,9 +339,22 @@
                 </div>
 
                 <!-- AI Vision Edge Cluster per line zone -->
-                <div class="node sys-edge" id="node-edge-cluster" style="left: 755px; top: 172px; width: 220px; height: 55px;">
+                <div class="node sys-edge" id="node-edge-cluster"
+                    style="left: 855px; top: 172px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="15" x2="23" y2="15"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="15" x2="4" y2="15"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">AI Vision Edge Cluster</span>
@@ -265,9 +365,14 @@
 
                 <!-- Zone 3 Nodes: WMS Platform - VN/SG Region -->
                 <!-- API Gateway + WAF -->
-                <div class="node sys-core" id="node-gateway" style="left: 335px; top: 342px; width: 180px; height: 55px;">
+                <div class="node sys-core" id="node-gateway"
+                    style="left: 335px; top: 342px; width: 180px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">API Gateway + WAF</span>
@@ -278,7 +383,12 @@
                 <!-- Azure AD SSO + RBAC -->
                 <div class="node sys-core" id="node-sso" style="left: 335px; top: 462px; width: 180px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Azure AD SSO + RBAC</span>
@@ -289,7 +399,11 @@
                 <!-- Integration Hub / iPaaS -->
                 <div class="node sys-core" id="node-hub" style="left: 325px; top: 572px; width: 200px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v12M6 12h12"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                            <path d="M12 6v12M6 12h12"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Integration Hub / iPaaS</span>
@@ -299,8 +413,15 @@
 
                 <!-- WMS Core Services (Centralized Core) -->
                 <div class="node sys-core" id="node-core" style="left: 585px; top: 510px; width: 180px; height: 60px;">
-                    <div class="node-icon" style="background: rgba(59, 130, 246, 0.2); box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    <div class="node-icon"
+                        style="background: rgba(59, 130, 246, 0.2); box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title" style="font-weight: 700;">WMS Core Services</span>
@@ -311,7 +432,17 @@
                 <!-- AI MLOps + Model Registry -->
                 <div class="node sys-core" id="node-mlops" style="left: 755px; top: 372px; width: 220px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline><polyline points="7.5 19.79 7.5 14.67 12 12.01 16.5 14.67 16.5 19.79"></polyline><polyline points="7.5 14.67 12 17.27 16.5 14.67"></polyline><line x1="12" y1="22.08" x2="12" y2="17.27"></line><line x1="12" y1="12.01" x2="12" y2="6.81"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                            <polyline points="7.5 19.79 7.5 14.67 12 12.01 16.5 14.67 16.5 19.79"></polyline>
+                            <polyline points="7.5 14.67 12 17.27 16.5 14.67"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="17.27"></line>
+                            <line x1="12" y1="12.01" x2="12" y2="6.81"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">AI MLOps + Model Registry</span>
@@ -322,7 +453,14 @@
                 <!-- SDS/COA Document Service -->
                 <div class="node sys-core" id="node-sds" style="left: 815px; top: 572px; width: 240px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">SDS/COA Document Service</span>
@@ -331,9 +469,14 @@
                 </div>
 
                 <!-- Notification Service SMTP/Teams -->
-                <div class="node sys-core" id="node-notify" style="left: 815px; top: 657px; width: 240px; height: 55px;">
+                <div class="node sys-core" id="node-notify"
+                    style="left: 815px; top: 657px; width: 240px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Notification Service</span>
@@ -342,9 +485,15 @@
                 </div>
 
                 <!-- Reporting -->
-                <div class="node sys-core" id="node-reporting" style="left: 585px; top: 657px; width: 180px; height: 55px;">
+                <div class="node sys-core" id="node-reporting"
+                    style="left: 585px; top: 657px; width: 180px; height: 55px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Reporting + BI Embed</span>
@@ -355,9 +504,15 @@
 
                 <!-- Zone 4 Nodes: Data Plane (Bottom) -->
                 <!-- Operational DB - Inventory/tasks -->
-                <div class="node sys-db db-cylinder" id="node-db" style="left: 80px; top: 837px; width: 200px; height: 75px;">
+                <div class="node sys-db db-cylinder" id="node-db"
+                    style="left: 80px; top: 837px; width: 200px; height: 75px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Operational DB</span>
@@ -366,9 +521,14 @@
                 </div>
 
                 <!-- Event Store / Outbox -->
-                <div class="node sys-db db-cylinder" id="node-events" style="left: 335px; top: 837px; width: 180px; height: 75px;">
+                <div class="node sys-db db-cylinder" id="node-events"
+                    style="left: 335px; top: 837px; width: 180px; height: 75px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                            <line x1="4" y1="22" x2="4" y2="15"></line>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Event Store / Outbox</span>
@@ -377,9 +537,15 @@
                 </div>
 
                 <!-- Analytics / KPI warehouse -->
-                <div class="node sys-db db-cylinder" id="node-analytics" style="left: 585px; top: 800px; width: 180px; height: 70px;">
+                <div class="node sys-db db-cylinder" id="node-analytics"
+                    style="left: 585px; top: 800px; width: 180px; height: 70px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Analytics / KPI WH</span>
@@ -388,9 +554,14 @@
                 </div>
 
                 <!-- Immutable audit log 7yr -->
-                <div class="node sys-db db-cylinder" id="node-audit" style="left: 585px; top: 890px; width: 180px; height: 70px;">
+                <div class="node sys-db db-cylinder" id="node-audit"
+                    style="left: 585px; top: 890px; width: 180px; height: 70px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Immutable Audit Log</span>
@@ -399,9 +570,13 @@
                 </div>
 
                 <!-- Redis - sessions, locks, routes -->
-                <div class="node sys-infra db-cylinder" id="node-redis" style="left: 900px; top: 837px; width: 220px; height: 75px;">
+                <div class="node sys-infra db-cylinder" id="node-redis"
+                    style="left: 900px; top: 837px; width: 220px; height: 75px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Redis Cache & Locks</span>
@@ -410,9 +585,14 @@
                 </div>
 
                 <!-- Object storage - labels, SDS, COA -->
-                <div class="node sys-db db-cylinder" id="node-object-store" style="left: 1150px; top: 837px; width: 200px; height: 75px;">
+                <div class="node sys-db db-cylinder" id="node-object-store"
+                    style="left: 1150px; top: 837px; width: 200px; height: 75px;">
                     <div class="node-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg>
                     </div>
                     <div class="node-content">
                         <span class="node-title">Object Storage</span>
@@ -426,16 +606,31 @@
         <!-- Float Zoom HUD controls -->
         <div class="hud-controls">
             <button class="hud-btn" id="btn-zoom-in" title="Zoom In">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
             </button>
             <button class="hud-btn" id="btn-zoom-out" title="Zoom Out">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
             </button>
             <button class="hud-btn" id="btn-zoom-reset" title="Reset View">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                </svg>
             </button>
             <button class="hud-btn" id="btn-toggle-glow" title="Toggle Active Connections Only">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+                    </path>
+                </svg>
             </button>
         </div>
 
@@ -447,13 +642,18 @@
                     <p id="drawer-subtitle">System Component</p>
                 </div>
                 <button class="close-panel-btn" id="btn-close-drawer">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </button>
             </div>
             <div class="details-content">
                 <div class="details-section">
                     <h4>Description</h4>
-                    <p id="drawer-desc">Select a service on the diagram to see its details and technical specifications.</p>
+                    <p id="drawer-desc">Select a service on the diagram to see its details and technical specifications.
+                    </p>
                 </div>
 
                 <div class="details-section">
@@ -487,4 +687,5 @@
     <!-- JavaScript logic -->
     <script src="app.js"></script>
 </body>
+
 </html>
