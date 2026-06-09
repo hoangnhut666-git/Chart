@@ -2,213 +2,213 @@
 const nodeMetadata = {
     'node-sap': {
         name: 'SAP S/4HANA IM',
-        subtitle: 'Enterprise Resource Planning (ERP)',
-        desc: 'The core enterprise system of record for inventory valuation, financial posting, and global stock ledgers. Syncs stock adjustments, sales order lines, and goods receipt notes via Integration Hub.',
+        subtitle: 'Financial & ERP System of Record',
+        desc: 'Global Syngenta ERP backbone for materials, BOM, production orders, sales orders, delivery notes, and GR/PGI (Phase 2). WMS holds execution truth at bin level; SAP holds financial truth. Phase 1: WMS confirms pick, staff post PGI manually.',
         status: 'Active',
         isPlanned: false,
-        tech: ['ABAP', 'SAP HANA DB', 'OData Services', 'SAP Integration Suite'],
-        protocols: ['REST/HTTPS', 'RFC (Remote Function Call)'],
-        connections: 'Connected to Integration Hub / iPaaS (bi-directional sync).'
+        tech: ['ABAP', 'SAP HANA DB', 'SAP Integration Suite', 'SAP BTP CPI'],
+        protocols: ['RFC (primary)', 'OData/REST', 'IDoc (Phase 2)'],
+        connections: 'Bi-directional sync via Integration Hub: INT-01 (master data), INT-03 (SO/DN), INT-04 (PGI/GR, Phase 2).'
     },
     'node-attx': {
         name: 'ATTx Track & Trace API',
-        subtitle: 'Carrier & Delivery Integration',
-        desc: 'External courier gateway API to request parcel tracking numbers, generate shipping labels, and query delivery statuses for outbound logistics orders.',
+        subtitle: 'Serialization & Sequence Validation',
+        desc: 'Production serialization system placing QR codes on five carton faces with material, batch, dates, serial, and line code. Provides sequence validation and interpolation for hidden cartons during AI Vision INT-06 flows.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Node.js API Gateway', 'OAuth2.0 Security'],
-        protocols: ['JSON-RPC over HTTPS', 'Webhooks'],
-        connections: 'Connected to Integration Hub / iPaaS for fulfillment label generation.'
+        tech: ['ATTx REST API', 'OAuth 2.0', 'Azure Key Vault (credentials)'],
+        protocols: ['REST/HTTPS', 'OAuth 2.0'],
+        connections: 'Connected to Integration Hub for INT-01 reference data; real-time sequence API during INT-06 edge inference.'
     },
     'node-mekong': {
         name: 'Mekong / ASG-North WMS APIs',
         subtitle: '3PL Partner Bridge',
-        desc: 'Third-Party Logistics (3PL) API bridge facilitating inventory alignment and shipment handovers between self-managed warehouses and external warehouse networks.',
+        desc: 'Third-party logistics systems for Mekong and ASG-North satellite warehouses. Supports inventory alignment, shipment handovers, and billing reconciliation via adapter pattern (Module D).',
         status: 'Active',
         isPlanned: false,
-        tech: ['Python FastAPI', 'Apache Airflow', 'SFTP Bridge'],
-        protocols: ['REST API (HTTPS)', 'EDIFACT/JSON over SFTP'],
-        connections: 'Connected to Integration Hub / iPaaS for daily reconciliation files.'
+        tech: ['REST API Adapter', 'Azure Logic Apps', 'SFTP Connector'],
+        protocols: ['REST API (HTTPS)', 'SFTP', 'JSON/EDIFACT'],
+        connections: 'Connected to Integration Hub for daily reconciliation, transaction sync, and 3PL billing (Module D).'
     },
     'node-cameras': {
         name: 'Industrial Cameras x15',
-        subtitle: 'Vision Ingestion Layer',
-        desc: 'GigE Vision industrial camera network mounted above conveyer lines and loading bays. Captures ultra-high-resolution, low-latency image streams for barcode scanning and volume measurement.',
+        subtitle: 'Vision Ingestion Layer (Module A)',
+        desc: 'IP67 industrial cameras (≥5 MP, ≥10 fps) at palletizing stations on 13 production lines. Capture QR, quantity, and packaging defect images with structured lighting or NIR for robot and manual lines.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Hikvision/Basler Cameras', 'PoE Network Hub'],
-        protocols: ['RTSP (Real-Time Streaming Protocol)', 'GigE Vision'],
-        connections: 'Streams high-frame-rate video feeds to local AI Vision Edge Cluster.'
+        tech: ['Industrial IP Cameras', 'PoE Network Hub', 'Structured Lighting'],
+        protocols: ['RTSP', 'GigE Vision'],
+        connections: 'Streams video via INT-05 to AI Vision Edge Cluster per line zone.'
     },
     'node-android': {
-        name: 'Android Clients',
-        subtitle: 'Floor Scanner Handhelds',
-        desc: 'Ruggedized Android RF terminals used by picking, packing, and sorting operators on the warehouse floor. Runs the custom lightweight WMS operator app for tasks execution.',
+        name: 'Handheld RF / Android Clients',
+        subtitle: '.NET MAUI RF Clients (INT-10)',
+        desc: 'Rugged Android RF terminals for put-away, picking, cycle count, SDS lookup, manual review queue, and exception handling. Vietnamese-primary UI with offline-first sync (30 min cache, 5 min reconcile).',
         status: 'Active',
         isPlanned: false,
-        tech: ['Android SDK', 'Kotlin', 'SQLite Local DB', 'Jetpack Compose'],
-        protocols: ['HTTPS (JSON)', 'WebSockets (Real-time task push)'],
-        connections: 'Initiates picking requests via WMS API Gateway + WAF.'
+        tech: ['.NET MAUI', 'MSAL (Azure AD)', 'SQLite Offline Outbox'],
+        protocols: ['HTTPS (JSON)', 'INT-10 via API Gateway'],
+        connections: 'Scan events via INT-10: API Gateway → Mobile BFF → WMS Core (Modules A, B, C, E, I).'
     },
     'node-sensors': {
         name: 'Environmental Sensors',
-        subtitle: 'IoT Telemetry (Optional)',
-        desc: 'Ambient sensors deployed inside cold storage and fragile goods zones. Captures real-time temperature, humidity, and atmospheric telemetry to safeguard sensitive inventory.',
+        subtitle: 'IoT Telemetry (Optional, INT-09)',
+        desc: 'Optional MQTT sensors monitoring warehouse temperature and humidity. Raises QA alerts when readings exceed thresholds for Module I environmental excursion logging.',
         status: 'Planned',
         isPlanned: true,
-        tech: ['ESP32 Microcontroller', 'DHT22 Sensors', 'Battery-powered node'],
-        protocols: ['MQTT (Message Queuing Telemetry Transport)'],
-        connections: 'Pushes telemetry packets directly to Integration Hub broker.'
+        tech: ['MQTT IoT Devices', 'Azure IoT Hub'],
+        protocols: ['MQTT', 'Azure IoT Hub Protocol'],
+        connections: 'MQTT → Azure IoT Hub → Integration Hub (INT-09, optional Phase 1).'
     },
     'node-edge-cluster': {
         name: 'AI Vision Edge Cluster',
-        subtitle: 'On-Premises Inference',
-        desc: 'Heavy-duty NVIDIA Jetson Edge computing nodes processing live camera frames. Executes local object detection models to read multi-barcodes, estimate packages size, and flags visual quality anomalies.',
+        subtitle: 'On-Premises Inference (INT-05/06)',
+        desc: 'NVIDIA Jetson AGX Orin cluster per line zone running real-time inference: QR decode, carton/pallet counting, defect detection, layer-by-layer accumulation, and confidence scoring before WMS acceptance.',
         status: 'Active',
         isPlanned: false,
-        tech: ['NVIDIA Jetson Orin', 'YOLOv8', 'TensorRT Optimization', 'GStreamer'],
-        protocols: ['RTSP Ingestion', 'gRPC (Alert notification)', 'MQTT Metadata'],
-        connections: 'Pushes metadata alerts to WMS Core; receives model weights from MLOps registry.'
+        tech: ['NVIDIA Jetson AGX Orin', 'DeepStream/GStreamer', 'TensorRT YOLO', 'Azure Cache for Redis (local buffer)'],
+        protocols: ['RTSP Ingestion (INT-05)', 'HTTPS/gRPC (INT-06)'],
+        connections: 'Consumes INT-05 camera feeds; publishes INT-06 recognition results to WMS Core Inbound; receives model weights from AI MLOps.'
     },
     'node-gateway': {
         name: 'API Gateway + WAF',
-        subtitle: 'Security & Traffic Controller',
-        desc: 'Protective border gateway auditing, filtering, and rate-limiting inbound client requests. Block malicious traffic via Web Application Firewall (WAF) rule sets.',
+        subtitle: 'Secure Entry Point',
+        desc: 'Single secure entry for RF clients, web admin, and edge nodes (mTLS). Provides TLS termination, rate limiting, WAF protection, correlation IDs, and request routing to WMS Core microservices on AKS.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Nginx Plus', 'AWS WAF / Cloudflare', 'OWASP Core Rule Set'],
-        protocols: ['TLS 1.3', 'HTTPS', 'gRPC-Web'],
-        connections: 'Proxies authenticated traffic to WMS Core Services.'
+        tech: ['Azure API Management', 'Application Gateway WAF', 'AKS Ingress'],
+        protocols: ['TLS 1.2+', 'HTTPS', 'mTLS (edge nodes)'],
+        connections: 'Routes RF (INT-10), admin, and edge traffic to WMS Core; validates JWT from Azure AD SSO.'
     },
     'node-sso': {
         name: 'Azure AD SSO + RBAC',
-        subtitle: 'Identity Provider',
-        desc: 'Validates user identity and assigns security tokens. Implements Role-Based Access Control (RBAC) to ensure picking operators, supervisors, and sysadmins only access designated endpoints.',
+        subtitle: 'Identity Provider (IAM)',
+        desc: 'Microsoft Entra ID authenticates Syngenta corporate users with MFA for administrators. Issues JWT tokens and enforces four roles: Administrator, Warehouse Supervisor, Operator, View-only.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Microsoft Entra ID (Azure AD)', 'OpenID Connect (OIDC)', 'OAuth 2.0'],
-        protocols: ['SAML 2.0', 'OIDC Claims', 'JWT Validation'],
-        connections: 'Secures API Gateway routing and matches user permissions.'
+        tech: ['Microsoft Entra ID (Azure AD)', 'MSAL', 'OpenID Connect'],
+        protocols: ['OIDC', 'JWT Validation', 'SAML 2.0 (federation)'],
+        connections: 'Validates identity at API Gateway perimeter; no SAP credentials on handheld devices.'
     },
     'node-hub': {
         name: 'Integration Hub / iPaaS',
-        subtitle: 'Enterprise Service Bus',
-        desc: 'Integration engine handling message translation, routing, and reliable delivery. Acts as an orchestration bridge between external systems, partner WMSs, and internal WMS Core.',
+        subtitle: 'Enterprise Integration Platform',
+        desc: 'Dedicated integration platform and only front door to SAP, ATTx, and 3PL systems. Handles master data sync, real-time SO/DN, message logging, replay, idempotency, and heartbeat monitoring.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Apache Camel', 'ActiveMQ Message Broker', 'Kubernetes'],
-        protocols: ['AMQP', 'JMS', 'HTTPS', 'SFTP'],
-        connections: 'Exchanges records with WMS Core, SAP ERP, 3PL APIs, and MQTT sensor payloads.'
+        tech: ['Integration Hub Worker (.NET)', 'Azure Logic Apps', 'SAP CPI / BTP'],
+        protocols: ['RFC', 'HTTPS', 'AMQP', 'SFTP'],
+        connections: 'INT-01–04 with SAP, ATTx, Mekong/ASG-North; bi-directional with WMS Core; INT-09 IoT payloads; 90-day message log.'
     },
     'node-core': {
         name: 'WMS Core Services',
-        subtitle: 'Core Business Logic Engine',
-        desc: 'The orchestrator of the WMS application. Processes inventory reservation rules, pathfinding for picking waves, container bin allocations, and workflow state transitions.',
+        subtitle: 'Execution Brain (Modules A–I)',
+        desc: 'ASP.NET Core 8 microservices implementing bounded contexts: Inbound, Inventory, Slotting, Outbound, Billing, Labor, Master Data, Compliance, Mcf (Phase 2). Execution truth in WMS; domain events via transactional outbox.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Go (Golang)', 'Spring Boot Microservices', 'Docker', 'gRPC Micro-routing'],
-        protocols: ['gRPC (Internal)', 'HTTPS REST (External)', 'Kafka Protocol'],
-        connections: 'Direct interfaces with API Gateway, Edge Cluster, Integration Hub, Database and Notification modules.'
+        tech: ['ASP.NET Core 8', 'MediatR', 'Docker on AKS', 'Domain Events + Outbox'],
+        protocols: ['HTTPS REST (external)', 'gRPC (internal)', 'CloudEvents'],
+        connections: 'Interfaces with Gateway (INT-10), Edge (INT-06), Hub (INT-01–04), OLTP, Event Store, Notify, Reporting, SDS.'
     },
     'node-mlops': {
         name: 'AI MLOps + Model Registry',
-        subtitle: 'ML Model Management',
-        desc: 'Central training and storage facility for neural network weights. Hosts the model registry and monitors edge model inference drift, pushing optimized YOLO weights back to Edge Clusters.',
+        subtitle: 'ML Model Management (Phase 2)',
+        desc: 'Cloud training and versioning for CNN/YOLO models (~500 SKUs). Quarterly retraining, TensorRT export to edge, Grad-CAM explainability, and 7-day rolling accuracy monitoring per line.',
         status: 'Planned',
         isPlanned: true,
-        tech: ['MLflow', 'Triton Inference Server', 'Kubeflow Pipelines', 'MinIO'],
-        protocols: ['gRPC', 'HTTPS API'],
-        connections: 'Syncs model artifacts to Edge Clusters; triggered by WMS Core analytics logs.'
+        tech: ['Azure Machine Learning', 'CVAT Labeling', 'MLflow Model Registry'],
+        protocols: ['HTTPS API', 'Model manifest deploy'],
+        connections: 'Trains and deploys model artifacts to AI Vision Edge Clusters; metadata-only northbound (video stays in Vietnam).'
     },
     'node-sds': {
         name: 'SDS/COA Document Service',
-        subtitle: 'Compliance Document Generator',
-        desc: 'Handles automated storage and retrieval of Safety Data Sheets (SDS) and Certificate of Analysis (COA) for chemical or hazardous materials stored in the facility.',
+        subtitle: 'Compliance Document Service (Module I)',
+        desc: 'Stores SDS PDFs linked to material codes; OCR/parses COA documents; tracks version and expiry. Serves instant SDS lookup to RF clients on scan for chemical and hazardous materials.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Node.js NestJS', 'PDFKit Generator', 'Metadata Extractor'],
-        protocols: ['gRPC', 'HTTPS REST'],
-        connections: 'Fetches compliance documents for WMS Core, backing them up in Data Plane Object Storage.'
+        tech: ['ASP.NET Core', 'Azure Blob Storage', 'Azure AI Document Intelligence'],
+        protocols: ['HTTPS REST', 'Blob Storage API'],
+        connections: 'Serves WMS Core Compliance service; archives documents in Azure Blob (Data Plane Object Storage).'
     },
     'node-notify': {
         name: 'Notification Service',
-        subtitle: 'Alerts & Messages Engine',
-        desc: 'Event-driven service dispatching real-time notifications to floor managers. Triggers email alerts via SMTP and automated incident cards into Microsoft Teams channels.',
+        subtitle: 'Alerts & Messages (INT-12)',
+        desc: 'Event-driven notifier dispatching SMTP emails and Microsoft Teams webhooks for PGI confirmations, near-expiry alerts, 3PL variance approvals, integration failures, and scheduled reports.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Go (Golang)', 'SMTP Protocol Adapter', 'MS Teams Webhook Client'],
-        protocols: ['SMTP', 'HTTPS JSON Webhooks'],
-        connections: 'Subscribes to Event Store topics triggered by WMS Core.'
+        tech: ['ASP.NET Core', 'SMTP Adapter', 'MS Teams Webhook Client'],
+        protocols: ['SMTP', 'HTTPS JSON Webhooks (INT-12)'],
+        connections: 'Primary: subscribes to Event Store / Outbox topics; also receives direct alerts from WMS Core for urgent floor incidents.'
     },
     'node-reporting': {
-        name: 'Reporting Module',
-        subtitle: 'Operational Dashboard APIs',
-        desc: 'Aggregates current shift picking speed, completed packaging counts, and shipping lane queues. Provides pre-calculated JSON endpoints to fuel supervisor dashboards.',
+        name: 'Reporting + BI Embed',
+        subtitle: 'Module F — KPI Dashboards',
+        desc: 'Real-time KPI dashboards, drag-and-drop report builder, scheduled Excel/PDF distribution, and supervisor tablet layouts. Read-optimized path decoupled from OLTP for P95 <3s floor operations.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Java Micronaut', 'Redis Cache Wrapper', 'JasperReports'],
-        protocols: ['REST/HTTPS'],
-        connections: 'Reads operational parameters from WMS Core and pushes reports to Analytics/KPI warehouse.'
+        tech: ['ASP.NET Core Reporting API', 'Blazor', 'SignalR', 'Power BI Embedded', 'SQL Server'],
+        protocols: ['REST/HTTPS', 'SignalR (WebSockets)', 'SQL Server TDS'],
+        connections: 'Reads from Analytics/KPI warehouse (CDC-fed); pushes real-time updates via SignalR to Blazor clients (Module F).'
     },
     'node-db': {
         name: 'Operational Database',
-        subtitle: 'High-Concurrency Datastore',
-        desc: 'The primary transaction database housing live records of warehouse inventory layouts, item positions, picking waves, and active operator task assignments.',
+        subtitle: 'OLTP — Execution Truth',
+        desc: 'Primary transaction store for inventory quantities, locations, tasks, scans, holds, production receipts, and pick lines. Model: Warehouse → Zone → Location → LPN → Handling Unit → Serial.',
         status: 'Active',
         isPlanned: false,
-        tech: ['PostgreSQL Cluster', 'Patroni High Availability', 'PgBouncer Connection Pool'],
-        protocols: ['Native PostgreSQL driver', 'Write-Ahead Logs (WAL)'],
-        connections: 'Directly queried and updated by WMS Core Services.'
+        tech: ['Azure Database for PostgreSQL Flexible Server', 'Schema per Bounded Context', 'Continuous Backup'],
+        protocols: ['PostgreSQL Native Driver', 'Write-Ahead Logs (WAL)'],
+        connections: 'Directly queried and updated by WMS Core microservices; RPO <1h via continuous backup.'
     },
     'node-events': {
         name: 'Event Store / Outbox',
-        subtitle: 'Event Streaming Backbone',
-        desc: 'Distributed message log storing append-only business events (e.g. stock-depleted, order-shipped). Implements the transactional Outbox pattern to guarantee event delivery.',
+        subtitle: 'Reliable Domain Events',
+        desc: 'Transactional outbox storing domain events (PalletVerified, PickConfirmed, PutawayBlockedByHazard) and integration messages before SAP/ATTx delivery. Guarantees at-least-once delivery.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Apache Kafka', 'Debezium CDC Connector', 'Zookeeper/KRaft'],
-        protocols: ['Kafka Broker Protocol', 'CloudEvents schema'],
-        connections: 'Receives events from WMS Core and fans them out to Analytics, Audit Log, and Notifications.'
+        tech: ['Azure Service Bus', 'Outbox Tables (per service)', 'CloudEvents Schema'],
+        protocols: ['Azure Service Bus Protocol', 'CloudEvents'],
+        connections: 'Receives events from WMS Core; fans out to Integration Hub, Analytics DWH, Audit Log, and Notification Service.'
     },
     'node-analytics': {
         name: 'Analytics / KPI Warehouse',
-        subtitle: 'OLAP Data Warehouse',
-        desc: 'Historical data warehouse used to run large analytical queries. Backs BI visualization tools (like PowerBI / Looker) to monitor overall warehouse efficiency metrics.',
+        subtitle: 'Historical BI Data Store',
+        desc: 'Read-optimized warehouse for throughput, inventory accuracy, FEFO compliance, AI accuracy by line, space utilization, and 3PL cost trends. Feeds Power BI Embedded dashboards (Module F).',
         status: 'Active',
         isPlanned: false,
-        tech: ['Google BigQuery', 'dbt (Data Build Tool)', 'Apache Spark'],
-        protocols: ['BigQuery API', 'gRPC Data Streams'],
-        connections: 'Ingests logs from Event Store and reports from Reporting module.'
+        tech: ['PostgreSQL Read Replica', 'CDC Pipeline', 'Azure Synapse (optional scale)'],
+        protocols: ['PostgreSQL', 'CDC Stream'],
+        connections: 'Ingests from Event Store via stream processor; receives aggregated feeds from Reporting module.'
     },
     'node-audit': {
         name: 'Immutable Audit Log',
-        subtitle: 'Compliance Security Storage',
-        desc: 'A secure, write-once-read-many (WORM) storage system containing every single inventory movement and authorization access log, retained for 7 years.',
+        subtitle: '7-Year Compliance Ledger',
+        desc: 'Append-only audit evidence for every stock mutation and privileged override: user ID, timestamp, action, before/after values. Separate from mutable OLTP; supports legal hold and regulatory inspections.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Elasticsearch Cloud', 'AWS S3 WORM / Azure Immutable Blob'],
-        protocols: ['HTTPS REST'],
-        connections: 'Ingests security/operational logs streamed from the Event Store.'
+        tech: ['Syngenta.Wms.Audit Service', 'Partitioned Append-Only Tables', 'Azure Immutable Blob (WORM)'],
+        protocols: ['HTTPS REST', 'MediatR Audit Pipeline'],
+        connections: 'Ingests audit events from Event Store / Outbox consumer; integration audit subset promoted from Hub 90-day log.'
     },
     'node-redis': {
         name: 'Redis Cache & Lock Manager',
-        subtitle: 'In-Memory Data Store',
-        desc: 'Fast, in-memory cache layer providing distributed locks to prevent pickers from reserving the same item simultaneously. Manages active user session tokens.',
+        subtitle: 'Azure Cache for Redis',
+        desc: 'In-memory cache for session state, distributed locks (concurrent pick prevention), hot master data (materials, hazard rules), and precomputed route segments from SAP INT-01 refresh.',
         status: 'Active',
         isPlanned: false,
-        tech: ['Redis Sentinel Cluster', 'Redlock Algorithm'],
+        tech: ['Azure Cache for Redis', 'Redlock Pattern'],
         protocols: ['Redis Serialization Protocol (RESP)'],
-        connections: 'Provides session data and transactional distributed locking to WMS Core.'
+        connections: 'Provides session data, distributed locking, and hot master data cache to WMS Core.'
     },
     'node-object-store': {
         name: 'Object Storage',
-        subtitle: 'Blob & Document Store',
-        desc: 'Cloud-based object storage archiving heavy binary assets like printed shipping label PDFs, SDS chemical safety documents, and compliance pictures.',
+        subtitle: 'Azure Blob Storage',
+        desc: 'Versioned blob store for label PDF/ZPL artifacts, SDS documents, COA uploads, exported report files, and optional model artifacts. AES-256 encryption at rest.',
         status: 'Active',
         isPlanned: false,
-        tech: ['MinIO / AWS S3', 'GCP Cloud Storage'],
-        protocols: ['S3 API (HTTPS)'],
-        connections: 'Retains documents uploaded by the SDS/COA Document Service.'
+        tech: ['Azure Blob Storage', 'SSE (AES-256)', 'Versioning'],
+        protocols: ['Azure Blob REST API'],
+        connections: 'Stores documents uploaded by SDS/COA Document Service; linked from OLTP metadata rows.'
     }
 };
 
@@ -222,15 +222,15 @@ const nodeConnections = {
     'node-sensors': ['node-hub'],
     'node-edge-cluster': ['node-cameras', 'node-core', 'node-mlops'],
     'node-gateway': ['node-android', 'node-sso', 'node-core'],
-    'node-sso': ['node-gateway', 'node-hub'],
-    'node-hub': ['node-sso', 'node-sap', 'node-attx', 'node-mekong', 'node-core', 'node-sensors'],
+    'node-sso': ['node-gateway'],
+    'node-hub': ['node-sap', 'node-attx', 'node-mekong', 'node-core', 'node-sensors'],
     'node-core': ['node-gateway', 'node-edge-cluster', 'node-hub', 'node-mlops', 'node-sds', 'node-notify', 'node-reporting', 'node-db', 'node-events', 'node-redis'],
     'node-mlops': ['node-edge-cluster', 'node-core'],
     'node-sds': ['node-core', 'node-object-store'],
-    'node-notify': ['node-core'],
+    'node-notify': ['node-core', 'node-events'],
     'node-reporting': ['node-core', 'node-analytics'],
     'node-db': ['node-core'],
-    'node-events': ['node-core', 'node-analytics', 'node-audit'],
+    'node-events': ['node-core', 'node-analytics', 'node-audit', 'node-notify'],
     'node-analytics': ['node-reporting', 'node-events'],
     'node-audit': ['node-events'],
     'node-redis': ['node-core'],
@@ -241,27 +241,27 @@ const nodeConnections = {
 const flowDefinitions = {
     'ai-vision': {
         name: 'AI Vision & Quality Alert',
-        info: '<strong>Industrial Camera</strong> captures packaging barcode/image → streams via RTSP to <strong>AI Vision Edge Cluster</strong> which detects defect → triggers a REST gRPC alert to <strong>WMS Core Services</strong> → Core records transaction log in <strong>Event Store / Outbox</strong> → <strong>Notification Service</strong> consumes log, firing immediate MS Teams/SMTP alerts to floor manager.',
-        pulses: ['pulse-cam-edge', 'pulse-edge-core', 'pulse-core-events', 'pulse-core-notify', 'pulse-events-audit'],
-        paths: ['path-cam-edge', 'path-edge-core', 'path-core-events', 'path-core-notify', 'path-events-audit'],
+        info: '<strong>Industrial Camera</strong> streams via <strong>INT-05</strong> (RTSP) to <strong>AI Vision Edge Cluster</strong> → edge infers QR/count/defect and publishes <strong>INT-06</strong> results to <strong>WMS Core Inbound</strong> → Core writes receipt to <strong>Operational DB</strong> and emits <strong>PalletVerified</strong> to <strong>Event Store / Outbox</strong> → <strong>Notification Service</strong> consumes event (MS Teams/SMTP) and <strong>Immutable Audit Log</strong> records evidence.',
+        pulses: ['pulse-cam-edge', 'pulse-edge-core', 'pulse-core-events', 'pulse-events-notify', 'pulse-events-audit'],
+        paths: ['path-cam-edge', 'path-edge-core', 'path-core-events', 'path-events-notify', 'path-events-audit'],
         nodes: ['node-cameras', 'node-edge-cluster', 'node-core', 'node-events', 'node-notify', 'node-audit'],
-        zones: [1, 2, 3] // Indices for visual highlighting (1-based: Bien Hoa=1, WMS Platform=2, etc.)
+        zones: [1, 2, 3] // 0=Enterprise, 1=Bien Hoa, 2=WMS Platform, 3=Data Plane
     },
     'order-picking': {
         name: 'Client Picking & Inventory Transaction',
-        info: 'Operator scans inventory barcode on <strong>Android Client</strong> → sends API request routed through secure <strong>API Gateway + WAF</strong> → Gateway verifies user tokens via <strong>Azure AD SSO</strong> → requests hit <strong>WMS Core Services</strong> (verifying locks in <strong>Redis</strong>) → Core commits transaction in SQL <strong>Operational Database</strong> and emits audit packet to <strong>Event Store / Outbox</strong> → event streams to <strong>Analytics / KPI Warehouse</strong> for live dashboards.',
-        pulses: ['pulse-android-gw', 'pulse-gw-ad', 'pulse-ad-hub', 'pulse-hub-core-forward', 'pulse-core-redis', 'pulse-core-db', 'pulse-core-events', 'pulse-events-analytics'],
-        paths: ['path-android-gw', 'path-gw-ad', 'path-ad-hub', 'path-hub-core', 'path-core-redis', 'path-core-db', 'path-core-events', 'path-events-analytics'],
-        nodes: ['node-android', 'node-gateway', 'node-sso', 'node-hub', 'node-core', 'node-redis', 'node-db', 'node-events', 'node-analytics'],
-        zones: [0, 2, 3] // Enterprise, WMS Platform, Data Plane
+        info: 'Operator scans barcode on <strong>.NET MAUI RF Client</strong> → <strong>INT-10</strong> request via <strong>API Gateway + WAF</strong> → Gateway validates JWT via <strong>Azure AD SSO</strong> → <strong>WMS Core Outbound</strong> verifies locks in <strong>Azure Cache for Redis</strong> → commits to <strong>Operational DB</strong> (PostgreSQL) and emits event to <strong>Event Store / Outbox</strong> → streams to <strong>Analytics / KPI Warehouse</strong> and <strong>Immutable Audit Log</strong>.',
+        pulses: ['pulse-android-gw', 'pulse-gw-ad', 'pulse-gw-core', 'pulse-core-redis', 'pulse-core-db', 'pulse-core-events', 'pulse-events-analytics', 'pulse-events-audit'],
+        paths: ['path-android-gw', 'path-gw-ad', 'path-gw-core', 'path-core-redis', 'path-core-db', 'path-core-events', 'path-events-analytics', 'path-events-audit'],
+        nodes: ['node-android', 'node-gateway', 'node-sso', 'node-core', 'node-redis', 'node-db', 'node-events', 'node-analytics', 'node-audit'],
+        zones: [1, 2, 3] // Bien Hoa, WMS Platform, Data Plane
     },
     'erp-sync': {
         name: 'ERP SAP & 3PL Integration Sync',
-        info: 'Enterprise inventory adjustment triggers in <strong>SAP S/4HANA IM</strong> → secure message routed to <strong>Integration Hub / iPaaS</strong> → Hub converts format and pushes queue to <strong>WMS Core Services</strong> → Core inserts updated records into <strong>Operational Database</strong> and synchronizes temporary cached route definitions inside in-memory <strong>Redis Cache</strong>.',
+        info: 'Master data or SO/DN change in <strong>SAP S/4HANA IM</strong> triggers <strong>INT-01</strong> (scheduled delta) or <strong>INT-03</strong> (real-time SO/DN) via <strong>Integration Hub</strong> → Hub transforms and delivers to <strong>WMS Core</strong> → Core updates <strong>Operational DB</strong> and refreshes hot master data and route cache in <strong>Azure Cache for Redis</strong>.',
         pulses: ['pulse-hub-sap-backward', 'pulse-hub-core-forward', 'pulse-core-db', 'pulse-core-redis'],
         paths: ['path-hub-sap', 'path-hub-core', 'path-core-db', 'path-core-redis'],
         nodes: ['node-sap', 'node-hub', 'node-core', 'node-db', 'node-redis'],
-        zones: [0, 2, 3]
+        zones: [0, 2, 3] // Enterprise, WMS Platform, Data Plane
     }
 };
 

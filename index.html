@@ -139,10 +139,12 @@
                     <path id="path-events-analytics" d="M 515 875 L 585 835" class="connection-path" marker-end="url(#arrow)" />
                     <!-- 21. Event Store -> Immutable Audit -->
                     <path id="path-events-audit" d="M 515 875 L 585 925" class="connection-path" marker-end="url(#arrow)" />
-                    <!-- 22. SDS Document -> Object Storage -->
+                    <!-- 22. Event Store -> Notification Service (Dashed) -->
+                    <path id="path-events-notify" d="M 515 875 L 700 780 L 815 685" class="connection-path dashed" marker-end="url(#arrow)" />
+                    <!-- 23. SDS Document -> Object Storage -->
                     <path id="path-sds-object" d="M 1055 600 L 1150 838" class="connection-path" marker-end="url(#arrow)" />
                     
-                    <!-- 23. WMS Core -> Redis (Dashed custom connection) -->
+                    <!-- 24. WMS Core -> Redis (Dashed custom connection) -->
                     <path id="path-core-redis" d="M 765 540 L 950 838" class="connection-path dashed" marker-end="url(#arrow)" />
 
 
@@ -180,6 +182,7 @@
                     
                     <path id="pulse-events-analytics" d="M 515 875 L 585 835" class="flow-pulse" />
                     <path id="pulse-events-audit" d="M 515 875 L 585 925" class="flow-pulse" />
+                    <path id="pulse-events-notify" d="M 515 875 L 700 780 L 815 685" class="flow-pulse" />
                     <path id="pulse-sds-object" d="M 1055 600 L 1150 838" class="flow-pulse" />
                     <path id="pulse-core-redis" d="M 765 540 L 950 838" class="flow-pulse" />
                 </svg>
@@ -192,7 +195,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">SAP S/4HANA IM</span>
-                        <span class="node-subtitle">ERP Inventory System</span>
+                        <span class="node-subtitle">Financial & ERP system of record</span>
                     </div>
                 </div>
                 
@@ -203,7 +206,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">ATTx Track & Trace API</span>
-                        <span class="node-subtitle">Package tracking endpoints</span>
+                        <span class="node-subtitle">Serialization & sequence validation</span>
                     </div>
                 </div>
 
@@ -214,7 +217,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Mekong / ASG-North</span>
-                        <span class="node-subtitle">3PL partner APIs & bridge</span>
+                        <span class="node-subtitle">3PL partner bridge (Module D)</span>
                     </div>
                 </div>
 
@@ -227,7 +230,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Industrial cameras x15</span>
-                        <span class="node-subtitle">High-speed barcode/QC scan</span>
+                        <span class="node-subtitle">INT-05 vision ingestion (Module A)</span>
                     </div>
                 </div>
 
@@ -237,8 +240,8 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                     </div>
                     <div class="node-content">
-                        <span class="node-title">Android clients</span>
-                        <span class="node-subtitle">Handheld picking scanners</span>
+                        <span class="node-title">Handheld RF / Android</span>
+                        <span class="node-subtitle">.NET MAUI RF clients (INT-10)</span>
                     </div>
                 </div>
 
@@ -249,7 +252,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Env sensors MQTT</span>
-                        <span class="node-subtitle">Temperature & humidity</span>
+                        <span class="node-subtitle">IoT telemetry optional (INT-09)</span>
                     </div>
                 </div>
 
@@ -260,7 +263,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">AI Vision Edge Cluster</span>
-                        <span class="node-subtitle">Local Jetson cluster</span>
+                        <span class="node-subtitle">INT-05/06 Jetson edge cluster</span>
                     </div>
                 </div>
 
@@ -273,7 +276,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">API Gateway + WAF</span>
-                        <span class="node-subtitle">Entry routing & firewall</span>
+                        <span class="node-subtitle">Azure APIM + App Gateway WAF</span>
                     </div>
                 </div>
 
@@ -284,7 +287,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Azure AD SSO + RBAC</span>
-                        <span class="node-subtitle">Identity access control</span>
+                        <span class="node-subtitle">Microsoft Entra ID + RBAC</span>
                     </div>
                 </div>
 
@@ -295,7 +298,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Integration Hub / iPaaS</span>
-                        <span class="node-subtitle">Camel & ActiveMQ brokers</span>
+                        <span class="node-subtitle">SAP/ATTx/3PL connectors (INT-01–04)</span>
                     </div>
                 </div>
 
@@ -306,7 +309,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title" style="font-weight: 700;">WMS Core Services</span>
-                        <span class="node-subtitle">Business operations engine</span>
+                        <span class="node-subtitle">ASP.NET Core microservices (A–I)</span>
                     </div>
                 </div>
 
@@ -317,7 +320,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">AI MLOps + Model Registry</span>
-                        <span class="node-subtitle">Model deployment & monitoring</span>
+                        <span class="node-subtitle">Azure ML model registry (Phase 2)</span>
                     </div>
                 </div>
 
@@ -328,7 +331,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">SDS/COA Document Service</span>
-                        <span class="node-subtitle">Safety & Analysis certificates compliance</span>
+                        <span class="node-subtitle">SDS/COA compliance (Module I)</span>
                     </div>
                 </div>
 
@@ -339,7 +342,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Notification Service</span>
-                        <span class="node-subtitle">SMTP & Microsoft Teams webhook</span>
+                        <span class="node-subtitle">INT-12 SMTP & Teams alerts</span>
                     </div>
                 </div>
 
@@ -349,8 +352,8 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                     </div>
                     <div class="node-content">
-                        <span class="node-title">Reporting</span>
-                        <span class="node-subtitle">Operational analytics data</span>
+                        <span class="node-title">Reporting + BI Embed</span>
+                        <span class="node-subtitle">Module F — KPI dashboards</span>
                     </div>
                 </div>
 
@@ -363,7 +366,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Operational DB</span>
-                        <span class="node-subtitle">Inventory & active tasks</span>
+                        <span class="node-subtitle">Azure PostgreSQL OLTP</span>
                     </div>
                 </div>
 
@@ -374,7 +377,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Event Store / Outbox</span>
-                        <span class="node-subtitle">Transaction message stream</span>
+                        <span class="node-subtitle">Azure Service Bus / Outbox</span>
                     </div>
                 </div>
 
@@ -385,7 +388,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Analytics / KPI WH</span>
-                        <span class="node-subtitle">Aggregated historical BI</span>
+                        <span class="node-subtitle">KPI warehouse (CDC-fed)</span>
                     </div>
                 </div>
 
@@ -406,8 +409,8 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                     </div>
                     <div class="node-content">
-                        <span class="node-title">Redis Cache</span>
-                        <span class="node-subtitle">Sessions, locks & routes</span>
+                        <span class="node-title">Redis Cache & Locks</span>
+                        <span class="node-subtitle">Azure Cache for Redis</span>
                     </div>
                 </div>
 
@@ -418,7 +421,7 @@
                     </div>
                     <div class="node-content">
                         <span class="node-title">Object Storage</span>
-                        <span class="node-subtitle">Blob store for labels & files</span>
+                        <span class="node-subtitle">Azure Blob Storage</span>
                     </div>
                 </div>
 
